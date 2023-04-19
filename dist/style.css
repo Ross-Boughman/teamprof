@@ -1,10 +1,11 @@
 * {
     box-sizing: border-box;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 :root {
-    --primary: lightslategray;
-    --secondary: white;
+    --primary: rgb(28, 104, 180);
+    --secondary: rgb(247, 208, 158);
 }
 
 body {
