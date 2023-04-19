@@ -1,17 +1,15 @@
 const fs = require("fs");
 
-import generateHTML from "./src/generateHTML";
-import inquirer from "inquirer";
-import Manager from "./lib/Manager";
-import Engineer from "./lib/Engineer";
-import Intern from "./lib/Intern";
-import { type } from "os";
+const generateHTML = require('./src/generateHTML');
+const inquirer = require('inquirer');
+const Manager = require('./lib/Manager');
+const Engineer = require('./lib/Engineer');
+const Intern = require('./lib/Intern'); 
 
 const employeeArray = [];
 
-function createManager() {
-  inquirer
-    .prompt([
+const createManager = () => {
+  return inquirer.prompt ([
       {
         type: "input",
         name: "managerName",
@@ -70,15 +68,14 @@ function createManager() {
       const  { managerName, managerId, managerEmail, managerOffNum } = answers; 
       const newManager = new Manager (managerName, managerId, managerEmail, managerOffNum);
 
-      teamArray.push(newManager); 
+      employeeArray.push(newManager); 
       console.log(newManager); 
   })
 };
 
-function createEmployee() {
+const createEmployee = () => {
   console.log(`Now adding employees to the team.`);
-  inquirer
-    .prompt([
+  return inquirer.prompt ([
       {
         type: "list",
         name: "role",
@@ -185,7 +182,7 @@ function createEmployee() {
         console.log(employee);
       }
 
-      employeeArray.push(newEngineer);
+      employeeArray.push(employee);
       if (confirmAddEmployee) {
         return addEmployee(employeeArray);
       } else {
